@@ -20,7 +20,7 @@ export default async function News({ params }: { params: { id: string } }) {
     <div className={`${inter.className} container p-24`}>
       <h1 className="text-center text-5xl">Blog Single</h1>
       <Link href={'/'} className="text-blue-500 mt-8 block">
-        ←To Top
+        ← Back To List
       </Link>
       {news && <pre className="mt-20">{JSON.stringify(news, null, 2)}</pre>}
     </div>
