@@ -1,3 +1,4 @@
+import fetchHKNewsList from '@/services/fetchHKNewsList';
 import Link from 'next/link';
 import fetchHKNews from '@/services/fetchHKNews';
 import { Inter } from 'next/font/google';
@@ -5,7 +6,13 @@ import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const revalidate = 60;
+export async function generateStaticParams() {
+  const newsList = await fetchHKNewsList();
+
+  return newsList.map((news) => ({
+    id: String(news.id),
+  }));
+}
 
 export default async function News({ params }: { params: { id: string } }) {
   const news = await fetchHKNews(params.id);
