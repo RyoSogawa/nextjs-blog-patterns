@@ -25,6 +25,19 @@ export default function Home() {
             SSG
           </Link>
         </li>
+        <li className="list-disc mb-4">
+          <Link href="https://nextjs-blog-patterns-rsc.vercel.app/" className="text-blue-500">
+            RSC
+          </Link>
+        </li>
+        <li className="list-disc mb-4">
+          <Link
+            href="https://nextjs-blog-patterns-static-export.vercel.app/"
+            className="text-blue-500"
+          >
+            Static Export
+          </Link>
+        </li>
       </ul>
     </div>
   );
