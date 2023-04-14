@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-export default function useFetchHKNews() {
-  const [news, setNews] = useState<any[]>([]);
+export default function useFetchHKNewsList() {
+  const [newsList, setNewsList] = useState<any[]>([]);
 
   useEffect(() => {
     (async function () {
@@ -13,11 +13,11 @@ export default function useFetchHKNews() {
           return res.json();
         }),
       );
-      setNews(news);
+      setNewsList(news);
     })();
   }, []);
 
   return {
-    news,
+    newsList,
   };
 }
