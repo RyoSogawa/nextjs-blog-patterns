@@ -1,9 +1,11 @@
+import useFetchHKNewsList from '@/services/useFetchHKNewsList';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const { newsList } = useFetchHKNewsList();
   return (
     <div className={`${inter.className} container p-24`}>
       <h1 className="text-center text-5xl">Blog List</h1>
