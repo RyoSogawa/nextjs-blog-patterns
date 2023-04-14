@@ -5,8 +5,8 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });
 
 type IndexPageProps = {
-  newsList: any[]
-}
+  newsList: any[];
+};
 
 export async function getServerSideProps() {
   const newsList = await fetchHKNewsList();
