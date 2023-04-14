@@ -12,7 +12,7 @@ type NewsPageProps = {
 
 type NewsPagePathParams = {
   id: string;
-}
+};
 
 export const getStaticPaths: GetStaticPaths<NewsPagePathParams> = async () => {
   const newsList = await fetchHKNewsList();
@@ -20,13 +20,13 @@ export const getStaticPaths: GetStaticPaths<NewsPagePathParams> = async () => {
     paths: newsList.map((news) => ({
       params: {
         id: String(news.id),
-      }
+      },
     })),
-    fallback: "blocking",
-  }
-}
+    fallback: 'blocking',
+  };
+};
 
-export async function getStaticProps({params}: GetStaticPropsContext<NewsPagePathParams>) {
+export async function getStaticProps({ params }: GetStaticPropsContext<NewsPagePathParams>) {
   const id = params?.id;
   const news = await fetchHKNews(String(id));
   return {

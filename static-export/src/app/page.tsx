@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import fetchHKNewsList from '@/services/fetchHKNewsList';
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export default async function Home() {
   const newsList = await fetchHKNewsList();
@@ -19,5 +19,5 @@ export default async function Home() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
