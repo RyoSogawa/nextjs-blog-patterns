@@ -1,5 +1,6 @@
 import fetchHKNews from '@/services/fetchHKNews';
-import { GetServerSidePropsContext } from 'next';
+import fetchHKNewsList from '@/services/fetchHKNewsList';
+import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
@@ -9,9 +10,25 @@ type NewsPageProps = {
   news: any;
 };
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { id } = context.query;
-  const news = await fetchHKNews(id as string);
+type NewsPagePathParams = {
+  id: string;
+}
+
+export const getStaticPaths: GetStaticPaths<NewsPagePathParams> = async () => {
+  const newsList = await fetchHKNewsList();
+  return {
+    paths: newsList.map((news) => ({
+      params: {
+        id: String(news.id),
+      }
+    })),
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({params}: GetStaticPropsContext<NewsPagePathParams>) {
+  const id = params?.id;
+  const news = await fetchHKNews(String(id));
   return {
     props: { news },
   };

@@ -8,7 +8,7 @@ type IndexPageProps = {
   newsList: any[];
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const newsList = await fetchHKNewsList();
   return {
     props: {
