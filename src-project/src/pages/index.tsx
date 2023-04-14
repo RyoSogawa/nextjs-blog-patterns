@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   return (
     <div className={`${inter.className} container p-24`}>
-      <h1 className="text-center text-5xl">Blog List</h1>
+      <h1 className="text-center text-5xl">Next.js Blog Patterns</h1>
       <ul className={`${inter.className} mt-20`}>
         <li className="list-disc mb-4">
           <a href="/csr" className="text-blue-500">
