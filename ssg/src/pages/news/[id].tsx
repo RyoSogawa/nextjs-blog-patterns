@@ -22,7 +22,7 @@ export const getStaticPaths: GetStaticPaths<NewsPagePathParams> = async () => {
         id: String(news.id),
       }
     })),
-    fallback: false,
+    fallback: "blocking",
   }
 }
 
@@ -31,6 +31,7 @@ export async function getStaticProps({params}: GetStaticPropsContext<NewsPagePat
   const news = await fetchHKNews(String(id));
   return {
     props: { news },
+    revalidate: 60,
   };
 }
 
