@@ -1,0 +1,14 @@
+{
+  "name": "nextjs-blog-patterns",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:RyoSogawa/nextjs-blog-patterns.git",
+  "author": "RyoSogawa <koashimitekara.1122@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"./**/*.(ts|tsx)\""
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7"
+  }
+}
