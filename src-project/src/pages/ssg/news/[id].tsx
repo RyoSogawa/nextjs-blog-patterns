@@ -1,9 +1,6 @@
 import fetchHKNews from '@/services/fetchHKNews';
 import fetchHKNewsList from '@/services/fetchHKNewsList';
 import { GetStaticPaths, GetStaticPropsContext } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 type NewsPageProps = {
   news: any;
@@ -36,7 +33,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<NewsPageP
 
 export default function News({ news }: NewsPageProps) {
   return (
-    <div className={`${inter.className} container p-24`}>
+    <div className={`container p-24`}>
       <h1 className="text-center text-5xl">Blog Single</h1>
       <a href={'/ssg'} className="text-blue-500 mt-8 block">
         ← Back To List
